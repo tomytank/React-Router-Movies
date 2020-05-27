@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie';
 import SavedList from './Movies/SavedList';
 
 
@@ -39,10 +40,9 @@ const App = () => {
           <MovieList key={movieList.id} movies={movieList}/>
         </Route>
         <Route path="/movies/:id">
-          
+          <Movie key={movieList.id} movie={movieList.id} />
         </Route>
       </Switch>
-      {/* <div>Replace this Div with your Routes</div> */}
     </div>
     </Router>
   );

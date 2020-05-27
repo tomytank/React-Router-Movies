@@ -8,23 +8,16 @@ const Movie = (props) => {
   console.log("state value of movie ",movie);
   // setMovie(props.id);
   // console.log("movie state value, movie.js", movie[id:2]);
-  console.log("Props, movie.js", props.movie[2]);
+  console.log("Props, movie.js", props);
   // const params = useParams();
-  
-  
-
   useEffect(() => {
-    // if()
-    let id;
+    let id= props.match.params.id;
     // const id = 1;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
-
-
-
   // const {path, url} = useRouteMatch();  
     // const id = props.movie.id;
-    // console.log("id in movie.js, ",id)
+    console.log("id in movie.js, ",id)
 
 
        axios
@@ -36,7 +29,7 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[props.movie.id]);
+  },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {

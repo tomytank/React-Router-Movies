@@ -40,9 +40,10 @@ const App = () => {
         <Route exact path="/" >
           <MovieList key={movieList.id} movies={movieList}/>
         </Route>
-        <Route path="/movies/:id">
+        <Route path="/movies/:id" component={Movie} />
+        {/* <Route path="/movies/:id">
           <Movie key={movieList.id} movie={movieList} />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
     </Router>

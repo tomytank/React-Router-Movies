@@ -7,7 +7,7 @@ const SavedList = props => (
     {props.list.map(movie => (
       <span className="saved-movie">{movie.title}</span>
     ))}
-    <Link to={'/'}>
+    <Link to={'/'} style={{ textDecoration: 'none' }}>
       <div className="home-button">Home</div>
     </Link>
   </div>

@@ -35,12 +35,13 @@ const App = () => {
     <Router>
     <div>
       <SavedList list={savedList} />
+      
       <Switch>
         <Route exact path="/" >
           <MovieList key={movieList.id} movies={movieList}/>
         </Route>
         <Route path="/movies/:id">
-          <Movie key={movieList.id} movie={movieList.id} />
+          <Movie key={movieList.id} movie={movieList} />
         </Route>
       </Switch>
     </div>

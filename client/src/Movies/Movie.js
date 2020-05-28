@@ -1,19 +1,23 @@
-import React, { useState, useEffect, useRouteMatch, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
 import MovieCard from './MovieCard';
 
+
 const Movie = (props) => {
+  const params = useParams();
+  let id = Number(params.id);
+  console.log("movie.js params, ",params);
+  console.log("Movie.js props, ", props);
+  console.log("Movie.js props.savedList, ", props.savedList);
   const [movie, setMovie] = useState();
-  console.log("state value of movie ",movie);
-    console.log("Props, movie.js", props);
   useEffect(() => {
-    let id= props.match.params.id;
+    
+    // let id= props.match.params.id;
     // const id = 1;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
-  // const {path, url} = useRouteMatch();  
-    // console.log("id in movie.js, ",id)
        axios
         .get(`http://localhost:5000/api/movies/${id}`)
         .then(response => {
@@ -23,7 +27,7 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[props.match.params.id]);
+  },[id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
@@ -35,7 +39,7 @@ const Movie = (props) => {
     return <div>Loading movie information...</div>;
   }
   // console.log("Movie after axios ",Movie);
-  const { title, director, metascore, stars } = movie;
+  // const { title, director, metascore, stars } = movie;
   return (
     <div className="save-wrapper">
       <MovieCard movie={movie} />

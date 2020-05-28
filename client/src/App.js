@@ -29,6 +29,7 @@ const App = () => {
 
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
+    console.log("App.js savedList ", savedList);
   };
 // console.log(movieList);
   return (
@@ -42,7 +43,7 @@ const App = () => {
         </Route>
         {/* <Route path="/movies/:id" component={Movie} savedList={addToSavedList} /> */}
         <Route path="/movies/:id">
-          <Movie key={movieList.id} movies={movieList} savedList={addToSavedList}/>
+          <Movie key={movieList.id} movies={movieList} addToSavedList={addToSavedList}/>
         </Route>
       </Switch>
     </div>

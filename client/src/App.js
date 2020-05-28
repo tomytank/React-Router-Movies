@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
@@ -40,10 +40,10 @@ const App = () => {
         <Route exact path="/" >
           <MovieList key={movieList.id} movies={movieList}/>
         </Route>
-        <Route path="/movies/:id" component={Movie} />
-        {/* <Route path="/movies/:id">
-          <Movie key={movieList.id} movie={movieList} />
-        </Route> */}
+        {/* <Route path="/movies/:id" component={Movie} savedList={addToSavedList} /> */}
+        <Route path="/movies/:id">
+          <Movie key={movieList.id} movies={movieList} savedList={addToSavedList}/>
+        </Route>
       </Switch>
     </div>
     </Router>
